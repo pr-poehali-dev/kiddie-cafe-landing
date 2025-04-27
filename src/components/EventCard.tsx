@@ -1,35 +1,36 @@
-
-import { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "lucide-react";
 
 interface EventCardProps {
   title: string;
   description: string;
-  icon: ReactNode;
-  image: string;
+  price: string;
+  imageSrc: string;
 }
 
-export const EventCard = ({ title, description, icon, image }: EventCardProps) => {
+const EventCard = ({ title, description, price, imageSrc }: EventCardProps) => {
   return (
-    <div className="candy-card overflow-hidden group">
-      <div className="h-48 rounded-xl overflow-hidden mb-6 relative group-hover:scale-[1.03] transition-transform duration-300">
+    <div className="bg-white rounded-lg overflow-hidden shadow-lg hover-scale transition-all duration-300">
+      <div className="h-48 overflow-hidden">
         <img 
-          src={image} 
+          src={imageSrc} 
           alt={title} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        <div className="absolute bottom-4 left-4 bg-white p-2 rounded-full candy-shadow">
-          {icon}
-        </div>
       </div>
-      
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-foreground/70 mb-4">{description}</p>
-      
-      <button className="text-candy-pink hover:text-candy-pink/80 font-medium transition-colors flex items-center gap-1">
-        Подробнее <ArrowRight className="h-4 w-4" />
-      </button>
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-xl font-bold text-purple-600">{title}</h3>
+          <span className="bg-pink-100 text-candy-pink px-3 py-1 rounded-full font-bold text-sm">
+            {price}
+          </span>
+        </div>
+        <p className="text-gray-600 mb-4">{description}</p>
+        <Button className="w-full candy-button flex items-center justify-center gap-2">
+          <Calendar className="h-4 w-4" />
+          Забронировать
+        </Button>
+      </div>
     </div>
   );
 };
