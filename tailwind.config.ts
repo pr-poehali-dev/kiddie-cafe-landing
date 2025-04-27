@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -61,6 +61,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Добавленные цвета для детского кафе
+				candy: {
+					pink: '#FF66B2',
+					blue: '#66C7F4',
+					yellow: '#FFD166',
+					green: '#06D6A0',
+					purple: '#9B87F5'
 				}
 			},
 			borderRadius: {
@@ -84,11 +92,23 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				bounce: {
+					'0%, 100%': { 
+						transform: 'translateY(0)',
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'bounce-slow': 'bounce 3s ease-in-out infinite'
+			},
+			fontFamily: {
+				'candy': ['"Comic Sans MS"', 'cursive'],
 			}
 		}
 	},
